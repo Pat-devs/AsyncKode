@@ -1,4 +1,4 @@
-﻿Task<int> ticket = Task.FromResult(42);
+﻿Task<string> ticket = Task.FromResult("Window");
 
-int seat = await ticket;
-Console.WriteLine($"Your seat is {seat}");
+string seat = await ticket;
+Console.WriteLine($"Your seat is by the {seat}");
