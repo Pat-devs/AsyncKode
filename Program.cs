@@ -1,6 +1,15 @@
-﻿Task kettle = Task.Delay(1000);
-Task toaster = Task.Delay(2000);
+﻿try
+{
+    string answer = await GetAnswerAsync();
+    Console.WriteLine(answer);
+}
+catch (InvalidOperationException error)
+{
+    Console.WriteLine($"Could not get answer: {error.Message}");
+}
 
-await Task.WhenAll(kettle, toaster);
-
-Console.WriteLine("Breakfast ready!");
+static async Task<string> GetAnswerAsync()
+{
+    await Task.Delay(300);
+    throw new InvalidOperationException("Reader is offline.");
+}
