@@ -1,4 +1,10 @@
-﻿Task<string> ticket = Task.FromResult("Window");
+﻿Console.WriteLine("Starting");
+await AnnounceReadyAsync();
+Console.WriteLine("Done");
 
-string seat = await ticket;
-Console.WriteLine($"Your seat is by the {seat}");
+static async Task AnnounceReadyAsync()
+{
+    Console.WriteLine("Preparing...");
+    await Task.Delay(2000);
+    Console.WriteLine("Ready!");
+}
