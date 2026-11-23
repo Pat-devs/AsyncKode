@@ -1,10 +1,4 @@
-﻿Task timer = Task.Delay(2000);
+﻿Task<int> ticket = Task.FromResult(42);
 
-Console.WriteLine("Order recieved");
-Console.WriteLine("Here is your receipt");
-// Thread.Sleep(2000);
-
-
-await timer;
-
-Console.WriteLine("Coffe ready!");
+int seat = await ticket;
+Console.WriteLine($"Your seat is {seat}");
